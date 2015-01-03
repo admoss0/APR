@@ -14,7 +14,14 @@ public class APR {
     
     public static void main(String[] args){
         Organisation o = new Organisation();
+        SOPL(o.getTitle());
         
+        
+        
+    }
+    
+       private static void SOPL(String in){
+        System.out.println("SOPL: " + in);
     }
     
 }
