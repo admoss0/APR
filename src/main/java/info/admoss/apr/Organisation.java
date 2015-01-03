@@ -6,12 +6,24 @@
 
 package info.admoss.apr;
 
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.Resource;
+
 /**
  *
  * @author admos0
  */
 public class Organisation {
+    
+    Model m;
+    Resource r;
+    Property title, description, website;
+    
     public Organisation() {
-        System.out.println("Hello World");
+        m = ModelFactory.createDefaultModel();
+        
+        
     }
 }
