@@ -58,14 +58,14 @@ public class Organisation {
      * @return the description
      */
     public String getDescription() {
-        return description.toString();
+        return r.getProperty(description).getObject().toString();
     }
 
     /**
      * @return the website
      */
     public String getWebsite() {
-        return website.toString();
+        return r.getProperty(website).getObject().toString();
     }
 
     /**
@@ -85,8 +85,10 @@ public class Organisation {
     /**
      * @param website the website to set
      */
-    public void setWebsite(Property website) {
-        this.website = website;
+    public void setWebsite(String website) {
+        
+        r.removeAll(this.website);
+        r.addProperty(this.website, website);
     }
     
     
