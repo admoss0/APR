@@ -16,7 +16,8 @@ import com.hp.hpl.jena.rdf.model.Resource;
  * @author admos0
  */
 public class Organisation {
-    
+    private String endpoint;
+    private String id;
     private Model m;
     private Resource r;
     private Property title;
@@ -36,9 +37,11 @@ public class Organisation {
     }
     
     
-    
-    
-   
+    public Organisation (String input) {
+            m = ModelFactory.createDefaultModel();
+        setProperties();
+        
+    }
     
     private void SOPL(String in){
         System.out.println("SOPL: " + in);
@@ -87,15 +90,37 @@ public class Organisation {
     }
     
     
-    final void setProperties() {
-        
+    final void setProperties() {  
       title = m.createProperty("http://purl.org/dc/elements/1.1/title");
       description = m.createProperty("http://purl.org/dc/elements/1.1/description");
-      website = m.createProperty("http://xmlns.com/foaf/0.1/homepage");
-      
-        
+      website = m.createProperty("http://xmlns.com/foaf/0.1/homepage");  
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the endpoint
+     */
+    public String getEndpoint() {
+        return endpoint; 
+    }
+
+    /**
+     * @param endpoint the endpoint to set
+     */
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
     }
 }
-
-
-
