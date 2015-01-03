@@ -17,6 +17,17 @@
             <artifactId>jena</artifactId>
             <version>2.3</version>
             <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>xmlbeans</groupId>
+                    <artifactId>xmlbeans-jsr173-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>2.6.0</version>
         </dependency>
     </dependencies>
     <properties>
