@@ -22,8 +22,14 @@ public class Organisation {
     Property title, description, website;
     
     public Organisation() {
+        
         m = ModelFactory.createDefaultModel();
         
+        SOPL("Organisation initialised");
         
+    }
+    
+    private void SOPL(String in){
+        System.out.println("SOPL: " + in);
     }
 }
