@@ -16,7 +16,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
  */
 public class Organisation {
 
-    private String endpoint;
+    private String endpoint = "http://semantic-admoss.rhcloud.com/ds/";
     private String id;
     private final Model m;
     private Resource r;
