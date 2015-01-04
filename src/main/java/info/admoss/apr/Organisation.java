@@ -30,7 +30,7 @@ public class Organisation {
         setProperties();
         r = m.createResource("http://admoss.info/apr/org/org#103");
         r.addProperty(title, "Liberty and Democracy Party" );
-        r.addProperty(description, "\"The Liberty & Democracy Party (formerly the Liberal Democratic Party) stands for lower taxes, small government and individual responsibility.\"");
+        r.addProperty(description, "The Liberty & Democracy Party (formerly the Liberal Democratic Party) stands for lower taxes, small government and individual responsibility.");
         r.addProperty(website, "www.ldp.org.au");
         SOPL("Organisation initialised");
         

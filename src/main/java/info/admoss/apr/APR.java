@@ -14,7 +14,8 @@ public class APR {
     
     public static void main(String[] args){
         Organisation o = new Organisation();
-        SOPL(o.getTitle());
+        o.setWebsite("test website");
+        SOPL(o.getWebsite());
         
         
         
