@@ -5,10 +5,12 @@
  */
 package info.admoss.apr;
 
+import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
+import org.apache.xmlbeans.impl.store.Query;
 
 /**
  *
@@ -131,5 +133,11 @@ public class Organisation {
      */
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
+    }
+    
+    private retrieve(){
+        Query q;
+        q = QueryFactory.create("");
+        
     }
 }
