@@ -5,12 +5,12 @@
  */
 package info.admoss.apr;
 
+import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
-import org.apache.xmlbeans.impl.store.Query;
 
 /**
  *
@@ -30,12 +30,7 @@ public class Organisation {
 
         m = ModelFactory.createDefaultModel();
         setProperties();
-        r = m.createResource("http://admoss.info/apr/org/org#103");
-        r.addProperty(title, "Liberty and Democracy Party");
-        r.addProperty(description, "\"The Liberty & Democracy Party (formerly the Liberal Democratic Party) stands for lower taxes, small government and individual responsibility.\"");
-        r.addProperty(website, "www.ldp.org.au");
-        SOPL("Organisation initialised");
-
+        testOrg();
     }
 
     public Organisation(String input) {
@@ -134,10 +129,18 @@ public class Organisation {
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
     }
-    
-    private retrieve(){
+
+    private void retrieve() {
         Query q;
         q = QueryFactory.create("");
-        
+
+    }
+
+    private void testOrg() {
+        r = m.createResource("http://admoss.info/apr/org/org#103");
+        r.addProperty(title, "Liberty and Democracy Party");
+        r.addProperty(description, "\"The Liberty & Democracy Party (formerly the Liberal Democratic Party) stands for lower taxes, small government and individual responsibility.\"");
+        r.addProperty(website, "www.ldp.org.au");
+        SOPL("Test Organisation initialised");
     }
 }
