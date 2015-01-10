@@ -6,11 +6,14 @@
 package info.admoss.apr;
 
 import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 /**
  *
@@ -18,9 +21,9 @@ import com.hp.hpl.jena.rdf.model.Resource;
  */
 public class Organisation {
 
-    private String endpoint = "http://semantic-admoss.rhcloud.com/ds/";
+    private String endpoint = "http://semantic-admoss.rhcloud.com/ds/query";
     private String id;
-    private final Model m;
+    private Model m;
     private Resource r;
     private Property title;
     private Property description;
@@ -36,6 +39,7 @@ public class Organisation {
     public Organisation(String input) {
         m = ModelFactory.createDefaultModel();
         setProperties();
+        setId(input);
 
     }
 
@@ -114,6 +118,7 @@ public class Organisation {
      */
     public void setId(String id) {
         this.id = id;
+        retrieve();
     }
 
     /**
@@ -131,9 +136,12 @@ public class Organisation {
     }
 
     private void retrieve() {
+        String query = "construct { <" + id + "> ?p ?o } where { <" + id + "> ?p ?o }";
         Query q;
-        q = QueryFactory.create("");
-
+        q = QueryFactory.create(query);
+        QueryExecution qe = QueryExecutionFactory.createServiceRequest(endpoint, q);
+        m = qe.execConstruct();
+        r = m.getResource(id);
     }
 
     private void testOrg() {
