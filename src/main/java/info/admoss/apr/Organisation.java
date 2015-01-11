@@ -14,6 +14,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -28,6 +29,11 @@ public class Organisation {
     private Property title;
     private Property description;
     private Property website;
+    Logger log = Logger.getLogger(Organisation.class);
+    
+    
+   
+    
 
     public Organisation() {
 
@@ -50,6 +56,7 @@ public class Organisation {
      */
     private void SOPL(String in) {
         System.out.println("SOPL: " + in);
+        
     }
 
     /**
@@ -142,6 +149,7 @@ public class Organisation {
         QueryExecution qe = QueryExecutionFactory.createServiceRequest(endpoint, q);
         m = qe.execConstruct();
         r = m.getResource(id);
+        log.info("retrieve completed");
     }
 
     private void testOrg() {
