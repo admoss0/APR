@@ -12,7 +12,8 @@ package info.admoss.apr;
 public class APR {
 
     public static void main(String[] args) {
-        Organisation o = new Organisation("http://admoss.info/apr/org/org#103");
+        Organisation o = new Organisation("http://admoss.info/apr/org/org#106"
+                + "");
         SOPL("ID: " + o.getId());
         SOPL("Title: " + o.getTitle());
         SOPL("Description: " + o.getDescription());
