@@ -5,11 +5,15 @@
  */
 package info.admoss.apr;
 
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author admos0
  */
 public class APR {
+    
+    static Logger log = Logger.getLogger(APR.class);
 
     public static void main(String[] args) {
         Organisation o = new Organisation("http://admoss.info/apr/org/org#106"
@@ -22,7 +26,7 @@ public class APR {
     }
 
     private static void SOPL(String in) {
-        System.out.println("SOPL: " + in);
+       log.info(in);
     }
 
 }

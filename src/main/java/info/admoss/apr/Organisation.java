@@ -14,6 +14,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -43,6 +44,7 @@ public class Organisation {
     }
 
     public Organisation(String input) {
+        // log.setLevel(Level.FATAL);
         m = ModelFactory.createDefaultModel();
         setProperties();
         setId(input);
