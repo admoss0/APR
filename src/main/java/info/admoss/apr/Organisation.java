@@ -30,6 +30,7 @@ public class Organisation {
     private Property title;
     private Property description;
     private Property website;
+    private Level loglevel = Level.DEBUG;
     Logger log = Logger.getLogger(Organisation.class);
     
     
@@ -37,18 +38,17 @@ public class Organisation {
     
 
     public Organisation() {
-
+      log.setLevel(loglevel);
         m = ModelFactory.createDefaultModel();
         setProperties();
         testOrg();
     }
 
     public Organisation(String input) {
-        // log.setLevel(Level.FATAL);
+        log.setLevel(loglevel);
         m = ModelFactory.createDefaultModel();
         setProperties();
         setId(input);
-
     }
 
     /**
@@ -145,20 +145,22 @@ public class Organisation {
     }
 
     private void retrieve() {
+        log.debug("starting retrieve for " + id);
         String query = "construct { <" + id + "> ?p ?o } where { <" + id + "> ?p ?o }";
         Query q;
         q = QueryFactory.create(query);
         QueryExecution qe = QueryExecutionFactory.createServiceRequest(endpoint, q);
         m = qe.execConstruct();
         r = m.getResource(id);
-        log.info("retrieve completed");
+        log.debug("retrieve completed");
     }
 
     private void testOrg() {
+  
         r = m.createResource("http://admoss.info/apr/org/org#103");
         r.addProperty(title, "Liberty and Democracy Party");
         r.addProperty(description, "\"The Liberty & Democracy Party (formerly the Liberal Democratic Party) stands for lower taxes, small government and individual responsibility.\"");
         r.addProperty(website, "www.ldp.org.au");
-        SOPL("Test Organisation initialised");
+    log.debug("Test Organisation initialised");
     }
 }
