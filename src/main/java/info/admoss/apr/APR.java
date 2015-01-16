@@ -23,7 +23,10 @@ public class APR {
         SOPL("Description: " + o.getDescription());
         SOPL("Website: " + o.getWebsite());
         
+        log.info("****************************************************");
 
+        OrgList ol = new OrgList();
+        
     }
 
     private static void SOPL(String in) {

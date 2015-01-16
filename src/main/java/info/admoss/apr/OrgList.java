@@ -29,18 +29,23 @@ public class OrgList {
     public OrgList() {
 
         list = new ArrayList<>();
+        retrieve();
 
     }
 
     private void retrieve() {
-        log.debug("starting retrieve for ");
-        String query = "construct { ?s ?p ?o } where { ?s ?p ?o ."
+        log.debug("starting retrieve");
+        String query = "construct { ?s ?p ?o } where { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://admoss.info/apr/PoliticalOrganisation> ."
+                + "?s <http://purl.org/dc/elements/1.1/title> ?o ."
+                + "?s ?p ?o ."
                 + " }";
         Query q;
         q = QueryFactory.create(query);
         QueryExecution qe = QueryExecutionFactory.createServiceRequest(endpoint, q);
         m = qe.execConstruct();
         log.debug("retrieve completed");
+        m.write(System.out, "TTL");
+        
     }
 
     class OrgListMember {
