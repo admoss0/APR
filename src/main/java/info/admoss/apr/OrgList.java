@@ -10,12 +10,18 @@ import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.rdf.model.Model;
+<<<<<<< HEAD
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Level;
+=======
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+>>>>>>> adb047d1fa3d73ed413b7573ce8a57d06d32fa2f
 import org.apache.log4j.Logger;
 
 /**
@@ -28,6 +34,7 @@ public class OrgList {
     private String endpoint = "http://semantic-admoss.rhcloud.com/ds/query";
     Model m;
     Logger log = Logger.getLogger(Organisation.class);
+<<<<<<< HEAD
     Property title, description, website;
     
 
@@ -37,6 +44,14 @@ public class OrgList {
         retrieve();
         setProperties();
         
+=======
+
+    public OrgList() {
+
+        list = new ArrayList<>();
+        retrieve();
+
+>>>>>>> adb047d1fa3d73ed413b7573ce8a57d06d32fa2f
     }
 
     private void retrieve() {
@@ -50,6 +65,7 @@ public class OrgList {
         QueryExecution qe = QueryExecutionFactory.createServiceRequest(endpoint, q);
         m = qe.execConstruct();
         log.debug("retrieve completed");
+<<<<<<< HEAD
         
         
     }
@@ -75,6 +91,9 @@ public class OrgList {
         
         
         
+=======
+        m.write(System.out, "TTL");
+>>>>>>> adb047d1fa3d73ed413b7573ce8a57d06d32fa2f
         
     }
 
@@ -82,6 +101,7 @@ public class OrgList {
 
         private String id;
         private String title;
+<<<<<<< HEAD
         
         public OrgListMember() {
             
@@ -91,6 +111,8 @@ public class OrgList {
            this.id = id;
            this.title = title;    
         }
+=======
+>>>>>>> adb047d1fa3d73ed413b7573ce8a57d06d32fa2f
 
         @Override
         public String toString() {
