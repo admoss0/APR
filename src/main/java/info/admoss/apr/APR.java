@@ -7,10 +7,6 @@ package info.admoss.apr;
 
 import org.apache.log4j.Logger;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> adb047d1fa3d73ed413b7573ce8a57d06d32fa2f
 /**
  *
  * @author admos0
@@ -30,10 +26,9 @@ public class APR {
         log.info("****************************************************");
 
         OrgList ol = new OrgList();
-<<<<<<< HEAD
+
         log.info("List: " + ol.getList().toString());
-=======
->>>>>>> adb047d1fa3d73ed413b7573ce8a57d06d32fa2f
+
         
     }
 
