@@ -24,10 +24,9 @@ public class APR {
         SOPL("Website: " + o.getWebsite());
         
         log.info("****************************************************");
-
-        OrgList ol = new OrgList();
-
-        log.info("List: " + ol.getList().toString());
+F1 f1 = new F1();
+f1.setVisible(true);
+    
 
         
     }

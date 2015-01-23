@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Level;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -73,6 +74,8 @@ public class OrgList {
             Resource r = i.next();
            list.add(new OrgListMember(r.getURI(), r.getProperty(title).getLiteral().toString()));
         }      
+        Collections.sort(list);
+   
         log.debug("list returned");
         return list;
         
@@ -81,7 +84,7 @@ public class OrgList {
         
     }
 
-    class OrgListMember {
+    class OrgListMember implements Comparable<OrgListMember> {
 
         private String id;
         private String title;
@@ -130,6 +133,14 @@ public class OrgList {
         public void setTitle(String title) {
             this.title = title;
         }
+
+        @Override
+        public int compareTo(OrgListMember o) {
+         return this.title.compareToIgnoreCase(o.getTitle());
+          
+        }
+        
+
     }
 
 }
