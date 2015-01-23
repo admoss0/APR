@@ -16,14 +16,7 @@ public class APR {
     static Logger log = Logger.getLogger(APR.class);
 
     public static void main(String[] args) {
-        Organisation o = new Organisation("http://admoss.info/apr/org/org#106"
-                + "");
-        SOPL("ID: " + o.getId());
-        SOPL("Title: " + o.getTitle());
-        SOPL("Description: " + o.getDescription());
-        SOPL("Website: " + o.getWebsite());
-        
-        log.info("****************************************************");
+     
 F1 f1 = new F1();
 f1.setVisible(true);
     
